@@ -1,0 +1,523 @@
+/* #17161a
+    	#d4cbbf
+*/
+*{
+
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    cursor: none;
+    transform: all 0.2s;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    transition: all 0.2s ease-out;
+}
+@font-face {
+    font-family: Stara;
+    font-weight: normal;
+    src: url(stara-sans-serif-font-2023-11-27-04-56-32-utc/OpenType-PS/Stara-Medium.otf);
+}
+@font-face {
+    font-family: Stara;
+    font-weight: bold;
+    src: url(stara-sans-serif-font-2023-11-27-04-56-32-utc/OpenType-PS/Stara-Black.otf);
+}
+@font-face {
+    font-family: Strong;
+    font-weight: normal;
+    src: url(strong-elegant-serif-font-typeface-2024-01-11-18-57-50-utc/Strong.ttf);
+}
+
+@font-face {
+    font-family: bug;
+    font-weight: normal;
+    src: url(corepix-glitch-pixel-serif-font-2024-02-15-19-40-00-utc/Corepix/OpenType-TT/Corepix.ttf)
+}
+
+@font-face {
+    font-family: 'Basis Grotesque Pro';
+    src: url('Grotesque Pro/BasisGrotesquePro-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Basis Grotesque Pro';
+    src:url('Grotesque Pro/BasisGrotesquePro-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Basis Grotesque Pro';
+    src:url('Grotesque Pro/BasisGrotesquePro-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Basis Grotesque Pro';
+    src:url('Grotesque Pro/BasisGrotesquePro-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Basis Grotesque Pro';
+    src:url('Grotesque Pro/BasisGrotesquePro-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Basis Grotesque Pro';
+    src:url('Grotesque Pro/BasisGrotesquePro-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Basis Grotesque Pro';
+    src:url('Grotesque Pro/BasisGrotesquePro-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Basis Grotesque Pro';
+    src:url('Grotesque Pro/BasisGrotesquePro-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Basis Grotesque Pro';
+    src:url('Grotesque Pro/BasisGrotesquePro-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Basis Grotesque Pro';
+    src:url('Grotesque Pro/BasisGrotesquePro-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Eiko';
+    src:url('Eiko/PPEiko-Variable.ttf') format("truetype-variations");
+    font-weight: 100;
+
+}
+
+@keyframes transformation{
+    from{
+        width: 100vw;
+        height: 100vh;
+        top: 0vh;
+        left: 0vw;
+    }
+
+    to{
+        width: 30vw;
+        height: 80vh;
+        border-radius: 30px;
+        left: 35vw;
+        top:10vh;
+    }
+}
+
+@keyframes goleft {
+    from{
+        left:0vw;
+    }
+    to{
+        left:101vw;
+    }
+}
+.goleft{
+    animation: goleft 2s ease-in-out;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.420, 0.000, 0.580, 1.000);
+}
+
+.animateInfo{
+    animation: transformation  0.8s ease-out;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.420, 0.000, 0.580, 1.000);
+}
+
+.animateback{
+    animation: transformation  0.8s ease-out;
+    animation-fill-mode: forwards;
+    animation-direction: reverse;
+    animation-timing-function: cubic-bezier(0.420, 0.000, 0.580, 1.000);
+
+}
+
+html{height: 100%; overflow: hidden}
+
+body{
+    background-color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    font-family: Eiko;
+
+}
+.loader{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: #000000;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-direction: column;
+}
+
+.loader img{
+    width: 5vw;
+}
+.cursor{
+  width: 1vw;
+  height: 1vw;
+  background-color: white;
+  border-radius: 50%;
+  transition: width ease 0.5s,height ease 0.5s;
+  z-index: 3;
+  mix-blend-mode: difference;
+}
+
+footer{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    opacity: 0;
+}
+
+
+.leftfoot{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 5vw;
+    top:15vh;
+    height: 70vh;
+    width: 25vw; 
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: Eiko;
+    font-variation-settings: "wght" 100;
+    
+}
+
+.rightfoot{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    right: 5vw;
+    top:15vh;
+    height: 70vh;
+    width: 25vw; 
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: Eiko;
+    font-variation-settings: "wght" 100;
+    
+}
+.rightfoot a{
+    color: black;
+    text-decoration: none;
+}
+
+.rightfoot a:hover{
+    text-decoration:underline ;
+}
+
+.itch{
+    display: flex;
+    width: 25vw;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5vw;
+}
+
+.itch img{
+    width: 2vw;
+    height: 2vw;
+}
+
+footer h1:hover,h2:hover{
+    font-variation-settings: "wght" 300;
+}
+.background{
+    position: absolute;
+    z-index: 1;
+    width: 2vw;
+    height: 80vh;
+    border-radius: 30px;
+    left: 49vw;
+    top:10vh;
+    overflow: hidden;
+    background-color: #000814;
+    /* animation: startanim 2s ease-in-out;
+    animation-delay: 5s; */
+
+}
+
+.background spline-viewer{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    align-self: center;
+    justify-self: center;
+}
+
+.Hide{
+    opacity: 0;
+    z-index: -999999;
+}
+
+.Home{
+    position: absolute;
+    display: flex;
+    height: 90vh;
+    width: 100%;
+    opacity: 0;
+}
+
+.navigator{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vw;
+    margin-left: 3vw;
+    align-items: center;
+    justify-content: center;
+    width: 15vw;
+}
+
+.navigator .Active{
+    border-radius: 30px;
+    height: 3vw;
+    width: 10vw;
+    background-color: rgba(255, 255, 255, 0.188);
+    color: white;
+    font-family: Eiko;
+    font-size: 1vw;
+    font-variation-settings: "wght" 200;
+    border-style:none;
+    z-index: 999;
+    
+}
+.Home .navigator  button:first-of-type{
+    position: absolute;
+    top: 5vw;
+    width: 5vw;
+    height: 3vw;
+    left: 5vw;
+}
+.Home .navigator button:hover{
+    border: 0.1vw solid white;
+    font-variation-settings: "wght" 700;
+    
+}
+
+.Home .navigator .Current{
+    border-radius: 30px;
+    height: 3vw;
+    font-size: 1vw;
+    width: 10vw;
+    background-color: rgba(28, 28, 28, 0.188);
+    color: white;
+    font-family: Eiko;
+    font-variation-settings: "wght" 700;
+    border-style:none;
+    z-index: 999;
+    border: 0.1vw solid white;
+ }
+.info{
+    margin-top: 0vh;
+    width: 90vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap:3vh;
+    color: white;
+    font-family: Eiko;
+    font-variation-settings: "wght" 300;
+}
+
+.info h1{
+    font-weight: lighter;
+}
+
+.info p{
+    width: 20vw;
+    margin-top: 12vh;
+    margin-left: 30vw;
+    font-variation-settings: "wght" 100;
+    text-align: justify;
+    z-index: 2;
+}
+
+.name{
+    mix-blend-mode: difference;
+    color: white;
+    font-size: 0.8vw;
+    display: flex;
+    flex-direction: row;
+    width: 80vw;
+    margin-top: 0;
+    justify-content: center;
+    align-content: center;
+    gap: 1vw;
+    width: 100%;
+    font-variation-settings: "wght" 100;
+    z-index: 100;
+}
+.name h5{
+    align-self: flex-end;
+}
+
+
+.info .we{
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    margin-top: 20vh;
+    text-shadow: 2px 2px 4px #000000;
+    font-size: 3vw;
+    z-index:1;
+}
+
+.info .we .left{
+    align-self: flex-end;
+}
+.gameSection{
+    display: grid;
+    width: 90vw;
+    align-items: center;
+    justify-content: center;
+    gap: 5vw;
+    position: absolute;
+    grid-template-columns: auto auto auto;
+    
+    height: 90vh;
+    left: 0;
+    top: 0;
+    z-index: -2;
+}
+
+.game{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 19vw;
+    overflow: hidden;
+
+}
+
+.game h2 a{
+    color: #ed6a5a;
+    text-decoration: none;
+    font-size: 2vw;
+
+}
+
+.game h2 a:hover{
+    text-decoration: underline;
+    font-size: 2.1vw;
+}
+
+.game p{
+    color: #5CA4A9;
+}
+.game .imga{
+    display: flex;
+    width: 20vw;
+    height: 20vw;
+    overflow: hidden;
+    justify-self: center;
+    align-self: center;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+
+}
+.game .imga .more{
+    position: absolute;
+    color: white;
+    width: 19vw;
+    height: 19vw;
+    background-color:black;
+    opacity: 0;
+}
+.game .imga .more:hover{
+    opacity: 0.5;
+}
+.game .imga img{
+    width: 19vw;
+    height: 19vw;
+    object-fit: cover;
+}
+
+
+.itlies{
+    background-color: #17161a;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    color: white;
+    overflow: hidden;
+    gap: 3vw;
+}
+.itlies img{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+}
+.title{
+    position: absolute;
+
+    width: 30vw;
+    height: 10vh;
+    font-size: 5vw;
+    font-variation-settings: "wght" 400;
+    left: 60vw;
+    
+
+
+    top: 70vh;
+}
+.counter{
+    position: absolute;
+    display: flex;
+    gap: 1.5vw;
+    width: 20vw;
+    height: 20vh;
+    font-size: 1vw;
+    align-items: center;
+    justify-content: center;
+    left: 20vw;
+    top: 15vh;
+}
+
+.itlies iframe{
+    position: absolute;
+    border-radius: 30px;
+    width: 35vw;
+    height: 35vh;
+    left: 60vw;
+    top: 10vh;
+}
+
+
